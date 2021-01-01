@@ -1,0 +1,3 @@
+# bucketrc
+
+ pullable bucket.
