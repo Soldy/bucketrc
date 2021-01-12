@@ -1,0 +1,24 @@
+{
+  "name": "bucketrc",
+  "version": "0.0.1-dev",
+  "description": "bucket manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Soldy/bucketrc.git"
+  },
+  "keywords": [],
+  "author": "Soldy",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/Soldy/bucketrc/issues"
+  },
+  "homepage": "https://github.com/Soldy/bucketrc#readme",
+  "devDependencies": {
+    "interactiveConsole": "0.0.7-alpha0",
+    "nanoTest": "^0.9.9-beta9"
+  }
+}
