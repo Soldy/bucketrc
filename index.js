@@ -1,7 +1,7 @@
 'use strict';
 
 /*
- * pool bucket // I try to finnish soon i can. Thaat a thrash anyway
+ * pool bucket // I try to finish soon i can. Thrash anyway
  * @param {integer} sizeIn
  * @prototype
  */
