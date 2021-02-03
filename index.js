@@ -1,12 +1,17 @@
+/*
+ *  @Soldy\bucketrc\2021.02.02\GPL3
+ */
 'use strict';
 
+const setupBase = (require('setuprc')).base;
+
 /*
- * pool bucket // I try to finish soon i can. Thrash anyway
+ * pool bucket // I try to finish soon i can. Trash anyway
  * @param {integer} sizeIn
  * @prototype
  */
 
-const bucketBase = function(sizeIn){
+const bucketBase = function(settings){
     /*
      * @param {any}
      * @public
@@ -157,7 +162,27 @@ const bucketBase = function(sizeIn){
             )
         );
     }
+    /*
+     * setup  helper
+     * @private
+     */
+    const setup = new setupBase({
+        'size':{
+           'minimum':{
+               'type'    : 'int',
+               'default' : 0
+           },
+           'maximum':{
+               'type'    : 'int',
+               'default' : 0
+           }
+        }
+    });
+    // constructor
+    if(typeof settings !== 'undefined')
+        setup.setup(settings);
 
 }
 
 
+exports.base = bucketBase;
