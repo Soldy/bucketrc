@@ -53,7 +53,7 @@ const bucketBase = function(settings){
      *
     */
     this.remove = function(num){
-        return removeFormBackBucket(num);
+        return removeFromBackBucket(num);
     }
     /*
      * @public
@@ -134,7 +134,7 @@ const bucketBase = function(settings){
      * @private
      * @return {boolean}
      */
-    const removeFormBucket = function(n){
+    const removeFromBucket = function(n){
         if(typeof bucket[n] === 'undefined')
             return false;
         bucket.splice(n, 1);
@@ -145,10 +145,10 @@ const bucketBase = function(settings){
      * @private
      * @return {boolean}
      */
-    const removeFormBackBucket = function(n){
+    const removeFromBackBucket = function(n){
         if(typeof backBucket[n] === 'undefined')
             return false;
-        backBcket.splice(n, 1);
+        backBucket.splice(n, 1);
         return true;
     }
     /*
