@@ -20,7 +20,7 @@ coverage
 bower_components
 .lock-wscript
 build/Release
-.github/
+demo/
 node_modules/
 jspm_packages/
 typings/
@@ -37,7 +37,7 @@ typings/
 *.tar.bz2
 *.txz
 *.tar.xz
-
+test
 .npm
 .yarn-integrity
 .env
@@ -49,6 +49,7 @@ dist
 .git
 .npmignore
 .gitignore
+.github/
 .editorconfig
 .eslintrc.json
 .jshintrc
