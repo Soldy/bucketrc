@@ -3,7 +3,7 @@
  */
 'use strict';
 
-const setupBase = (require('setuprc')).base;
+const $setuprc = (require('setuprc')).base;
 
 /*
  * pool bucket // I try to finish soon i can. Trash anyway
@@ -19,7 +19,7 @@ const bucketBase = function(settings){
      *
     */
     this.add = function(val){
-        return add(val);
+        return _add(val);
     }
     /*
      * @public
@@ -27,7 +27,7 @@ const bucketBase = function(settings){
      *
     */
     this.last = function(){
-        return last();
+        return _last();
     }
     /*
      * @public
@@ -35,7 +35,7 @@ const bucketBase = function(settings){
      *
     */
     this.random = function(){
-        return random();
+        return _random();
     }
     /*
      * @public
@@ -43,7 +43,7 @@ const bucketBase = function(settings){
      *
     */
     this.first = function(){
-        return first();
+        return _first();
 
     }
     /*
@@ -53,43 +53,43 @@ const bucketBase = function(settings){
      *
     */
     this.remove = function(num){
-        return removeFromBackBucket(num);
+        return _removeFromBackBucket(num);
     }
     /*
      * @public
      * @return {array}
     */
     this.all = function(){
-        return all();
+        return _all();
     }
     /*
      * @private
      * @var {array}
     */
-    let bucket = [];
+    let _bucket = [];
     /*
      * @private
      * @var {array}
     */
-    let backBucket = [];
+    let _back_bucket = [];
     /*
      * @param {any}
      * @private
      * @return {boolean}
      */
-    const add = function(val){
-        backBucket.push(val);
-        syncron();
+    const _add = function(val){
+        _back_bucket.push(val);
+        _syncron();
         return true;
     }
     /*
      * @private
      * @return {void}
     */
-    const syncron = function(){
-        bucket = JSON.parse(
+    const _syncron = function(){
+        _bucket = JSON.parse(
             JSON.stringify(
-                backBucket
+                _back_bucket
             )
         );
     }
@@ -98,26 +98,26 @@ const bucketBase = function(settings){
      * @private
      * @return {any}
      */
-    const get = function(num){
-        const out = bucket[num];
-        removeFromBucket(num);
+    const _get = function(num){
+        const out = _bucket[num];
+        _removeFromBucket(num);
         return out;
     }
     /*
      * @private
      * @return {any}
      */
-    const first = function(){
-        return get (0);
+    const _first = function(){
+        return _get (0);
     }
     /*
      * @private
      * @return {any}
      */
-    const random = function(){
+    const _random = function(){
         return get(
             Math.round(
-                Math.random()*(bucket.length)
+                Math.random()*(_bucket.length)
             )
         );
     }
@@ -126,18 +126,18 @@ const bucketBase = function(settings){
      * @return {any}
      *
      */
-    const last = function(){
-        return get(bucket.length-1);
+    const _last = function(){
+        return _get(_bucket.length-1);
     }
     /*
      * @param {integer}
      * @private
      * @return {boolean}
      */
-    const removeFromBucket = function(n){
-        if(typeof bucket[n] === 'undefined')
+    const _removeFromBucket = function(n){
+        if(typeof _bucket[n] === 'undefined')
             return false;
-        bucket.splice(n, 1);
+        _bucket.splice(n, 1);
         return true;
     }
     /*
@@ -145,20 +145,20 @@ const bucketBase = function(settings){
      * @private
      * @return {boolean}
      */
-    const removeFromBackBucket = function(n){
-        if(typeof backBucket[n] === 'undefined')
+    const _removeFromBackBucket = function(n){
+        if(typeof _back_bucket[n] === 'undefined')
             return false;
-        backBucket.splice(n, 1);
+        _back_bucket.splice(n, 1);
         return true;
     }
     /*
      * @private
      * @return {array}
     */
-    const all = function(){
+    const _all = function(){
         return JSON.parse(
             JSON.stringify(
-                backBucket
+                _back_bucket
             )
         );
     }
@@ -166,7 +166,7 @@ const bucketBase = function(settings){
      * setup  helper
      * @private
      */
-    const setup = new setupBase({
+    const _setup = new $setuprc({
         'size':{
            'minimum':{
                'type'    : 'int',
@@ -180,7 +180,7 @@ const bucketBase = function(settings){
     });
     // constructor
     if(typeof settings !== 'undefined')
-        setup.setup(settings);
+        _setup.setup(settings);
 
 }
 
