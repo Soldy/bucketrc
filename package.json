@@ -17,6 +17,7 @@
     "url": "https://github.com/Soldy/bucketrc/issues"
   },
   "homepage": "https://github.com/Soldy/bucketrc#readme",
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "nanoTest": "0.9.9-beta31"
+  }
 }
