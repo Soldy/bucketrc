@@ -1,5 +1,5 @@
 const nanoTest  = new (require('nanoTest')).test({
-    'debugPrint' : 'short'
+    'debug_print' : 'short'
 });
 
 const bucketrc = new (require('./index.js')).base();

@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/Soldy/bucketrc#readme",
   "devDependencies": {
-    "nanoTest": "0.9.9-beta31"
+    "nanoTest": "0.9.9-beta32"
   }
 }
